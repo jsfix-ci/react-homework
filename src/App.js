@@ -1,11 +1,15 @@
-import React from "react";
+import React from 'react';
+import { Layout } from './Layouts/Layout';
+import { Promo } from './Layouts/Promo';
+import { Posts } from './Layouts/Posts';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+    return (
+        <Layout>
+            <Promo />
+            <Posts />
+        </Layout>
+    );
 }
 
 export default App;
