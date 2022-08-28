@@ -1,0 +1,28 @@
+.footer__wrapper{
+    margin-top: 72px;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 92px;
+    position: relative;
+}
+
+.footer::before{
+    content: '';
+    background: #DADADA;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    height: 1px;
+    width: 1120px;
+    position: absolute;
+    top: 0px;
+
+}
+.footer__item{
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #8D8E97;
+
+}

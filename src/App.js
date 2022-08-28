@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Posts } from './components/Posts';
+import {FavPosts} from './components/FavoritePosts'
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { underlineAll, underlineFav } from './components/Header/Header';
+
+
 
 function App() {
+
+  const [isActive, setIsActive] = useState(false) 
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app__wrapper'>
+    <Header>
+    <div className='buttons__block'>
+      <p className='button__all underline' onClick={() => {setIsActive(false); underlineAll()}}>All</p>
+      <p className='button__fav' onClick = {() => {setIsActive(true); underlineFav()}}>Favorite</p>
+    </div>
+    </Header>
+      {isActive ? <FavPosts /> : <Posts />}
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,1 @@
+export {FavPosts} from './FavPosts'
