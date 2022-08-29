@@ -1,7 +1,5 @@
 import styles from './header.css'
 
-
-
 export function underlineAll() {
     const buttonAll = document.querySelector('.button__all')
     const buttonFav = document.querySelector('.button__fav')
@@ -23,7 +21,7 @@ export function underlineFav() {
 export const Header = function ({ children }) {
     return (
         <div className='header'>
-            <h1 className='header__item'>Blogs</h1>
+            <h1 className='header__item'>Blog</h1>
             {children}
         </div>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Posts } from './components/Posts';
-import {FavPosts} from './components/FavoritePosts'
+import { PostsList } from './components/PostsList';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { underlineAll, underlineFav } from './components/Header/Header';
@@ -10,19 +9,18 @@ import { underlineAll, underlineFav } from './components/Header/Header';
 
 function App() {
 
-  const [isActive, setIsActive] = useState(false) 
-
+  const [activeTab, setActiveTab] = useState('all') 
 
   return (
     <div className='app__wrapper'>
     <Header>
     <div className='buttons__block'>
-      <p className='button__all underline' onClick={() => {setIsActive(false); underlineAll()}}>All</p>
-      <p className='button__fav' onClick = {() => {setIsActive(true); underlineFav()}}>Favorite</p>
+      <p className={activeTab === 'all' ? 'button__all underline' : 'button__all'} onClick={() => setActiveTab('all')}>All</p>
+      <p className={activeTab === 'all' ? 'button__fav' : 'button__fav underline'} onClick = {() => setActiveTab('fav')}>Favorite</p>
     </div>
     </Header>
-      {isActive ? <FavPosts /> : <Posts />}
-      <Footer />
+      <PostsList value = {activeTab} />
+    <Footer />
     </div>
   );
 }
