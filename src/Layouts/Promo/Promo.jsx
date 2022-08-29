@@ -1,4 +1,4 @@
-// libraires
+// libraries
 import React from 'react';
 // components
 import Container from '@mui/material/Container';
