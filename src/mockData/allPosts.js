@@ -22,7 +22,7 @@ export const allPosts = [
       },
       {
         id: 4,
-        image: "https://i.ibb.co/nmXwg2M/Rectangle-39-3.png",
+        image: "https://i.ibb.co/nmXwg2M/Rectangle-39-1.png",
         text: "Astronauts prep for new solar arrays on nearly seven-hour spacewalk",
         date: "April 20, 2021",
         isFavorite: false,

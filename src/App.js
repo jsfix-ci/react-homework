@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Title, Post } from "./components";
-import { allPosts } from "./mockData/allPosts"
+import { Title, PostList} from "./components";
+import {Layout} from "./components/Layout"
 
 function App() {
-  const [post, setPost] = useState(allPosts);
-
+  
   return (
     <>
+    <Layout>
       <Title />
-      <Post blog={post} />
+      <PostList />
+    </Layout>
     </>
   )
 }
