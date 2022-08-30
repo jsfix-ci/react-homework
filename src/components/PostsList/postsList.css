@@ -1,3 +1,11 @@
+.page__name{
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    color: #313037;
+    margin: 72px 0px 47px 0px;
+    
+}
 
 .posts{
     display: flex;
@@ -8,7 +16,8 @@
 .posts__item {
     list-style-type: none;
     position: relative;
-    max-width: 352px;
+    overflow: hidden;
+
 }
 
 .posts__item::after{
@@ -40,6 +49,28 @@ font-weight: 600;
 font-size: 18px;
 line-height: 28px;
 color: #313037;
+max-width: 352px;
 margin-bottom: 20px;
 
+}
+
+.buttons__block{
+    display: flex;
+    gap: 40px;
+    margin-bottom: 65px;
+}
+
+.button__all, .button__fav{
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #313037;
+width: 80px;
+height: 48px;
+text-align: center;
+
+}
+
+.underline{
+border-bottom: 2px solid #313037;
 }
