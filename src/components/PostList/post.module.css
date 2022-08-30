@@ -1,12 +1,14 @@
+.grid {
+    display: grid;
+    
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .header {
-    text-decoration: none;
-    display: inline-block;
     margin-right: 20px;
     max-width: 352px;
     max-height: 400px;
     margin-bottom: 80px;
-    margin-left: 20px;
-    
 }
 .headerItem {
     display: flex;

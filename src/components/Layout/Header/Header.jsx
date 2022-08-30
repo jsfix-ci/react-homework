@@ -2,7 +2,6 @@ import styles from "../Header/header.module.css"
 
 export const Header = () => {
     return (
-        <>
         <div className={styles.Header}>
             <div className={styles.HeaderSvg}>
                 <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +18,5 @@ export const Header = () => {
             <div className={styles.HeaderIn}>JB</div>
             <div className={styles.HeaderName}>Julia Baranova</div>
         </div>
-        </>
     )
 }

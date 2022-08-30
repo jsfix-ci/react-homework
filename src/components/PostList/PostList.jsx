@@ -16,16 +16,13 @@ export const PostList = () => {
     try {
       const data = await axios
         .get('https://60f699f318254c00176e0362.mockapi.io/posts')
-        .then(res => {
-          console.log(res);
-          setPostList(res.data)
-        })
+        .then(res => { setPostList(res.data) })
       setLoading(true)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      alert(error)
     }
   }
-  
+
   useEffect(() => {
     fetchPost();
   }, [])
@@ -50,7 +47,7 @@ export const PostList = () => {
                 <Tab label='My favorites' value='2' />
               </TabList>
             </Box>
-            <TabPanel value='1'>
+            <TabPanel className={styles.grid} value='1'>
               {postList.map((item) => {
                 return (
                   <div className={styles.header} key={item.id} >
