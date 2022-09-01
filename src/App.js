@@ -1,16 +1,19 @@
-// libraries
 import React from 'react';
-// components
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { SignUp } from './pages/SignUp';
 import { Layout } from './Layouts/Layout';
-import { Promo } from './Layouts/Promo';
-import { Posts } from './Layouts/Posts';
 
 function App() {
     return (
-        <Layout>
-            <Promo />
-            <Posts />
-        </Layout>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="sign-up" element={<SignUp />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

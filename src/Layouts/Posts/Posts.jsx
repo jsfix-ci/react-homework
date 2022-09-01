@@ -1,16 +1,12 @@
-// libraries
 import React, { useState, useEffect } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-// components
 import { TabPanel } from '../../components/TabPanel';
 import { MediaCard } from '../../components/MediaCard';
-// helpers
 import { a11yProps } from '../../helpers/a11yProps';
-// static
 import loadingSpinnerImg from '../../assets/images/svg-icons/loading-spinner.svg';
 
 const renderPosts = (posts) =>
@@ -57,7 +53,7 @@ export const Posts = () => {
     return (
         <section>
             <Container>
-                <Box sx={{ minHeight: '70vh' }}>
+                <Box>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
                         <Tabs value={value} onChange={handleChange} aria-label="posts list">
                             <Tab label="All" {...a11yProps(0)} />
