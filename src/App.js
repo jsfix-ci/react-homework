@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import {Form} from './components/Form/Form'
 import './App.css';
-import { PostsList } from './components/PostsList';
-import { Layout } from './components/Layout/Layout';
+
 
 
 
@@ -9,9 +8,7 @@ import { Layout } from './components/Layout/Layout';
 function App() {
 
   return (
-      <Layout>
-        <PostsList />
-      </Layout>
+    <Form />
   );
 }
 
