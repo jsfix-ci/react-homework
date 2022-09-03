@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { allPosts } from "./allPosts"
-import './posts.css'
+
 
 export const Posts = ({isFavorite}) => {
     const [posts, setPosts] = useState(allPosts)
@@ -19,7 +19,7 @@ export const Posts = ({isFavorite}) => {
                 {favoritePosts.map((item)=>{
                     return (
                         <li key={item.id} className="list_item">
-                            <img src={item.image}/>
+                            <img className="item__img" src={item.image}/>
                             <p className="item__date">{item.date}</p>
                             <p className="item__text">{item.text}</p>
                         </li>
