@@ -1,15 +1,21 @@
-export const postData = (form, setServerError, setSubmitForm) => {
-    fetch('https://studapi.teachmeskills.by/auth/users/', {
-        method: 'POST',
-        body: JSON.stringify(form),
+import axios from "axios";
+
+export const postData = async (form, setServerError, setSubmitForm) => {
+   await axios.post('https://studapi.teachmeskills.by/auth/users/', {
+        data: {
+            'username': form.name,
+            'email': form.email,
+            'password': form.password
+        },
         headers: {
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
     }).then(async response => {
+        const result = await response.json()
         if (response.status === 201) {
             setSubmitForm(true)
-            return response.json()
+            return result
         } else {
             const error = await response.json()
             setServerError(true)
@@ -17,8 +23,9 @@ export const postData = (form, setServerError, setSubmitForm) => {
             e.data = error
             throw e
         }
-    }).then(data => console.log(data))
-        .catch(err => console.log(err))
-        .finally(setSubmitForm(false))
-
+    }).catch(function (error) {
+        console.log(error)
+    }).finally(function () {
+        setSubmitForm(false)
+    })
 }

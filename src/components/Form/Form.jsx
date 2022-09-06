@@ -15,14 +15,13 @@ export const Form = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
         setErrorForm({
-            name: form.username.length < 3 ? 'Your name must be at least 3 characters!' : '',
-            password: form.password.length < 10 ? 'Your password must be at least 10 characters!' : '',
+            name: ((!validator.isAlphanumeric(form.username) && validator.isLength(form.password, {minLength:5})) ? 'Please enter a valid name!' : ''),
+            password: ((!validator.isLength(form.password, {minLength:8})) ? 'Is Not Strong Password!' : ''),
             email: !validator.isEmail(form.email) ? 'Please, enter valid Email!' : ''
         })
         postData (form, setServerError, setSubmitForm)
         setServerError( false)
         setSubmitForm(false)
-
     }
     useEffect(() => {
         if (errorForm.username === '' && errorForm.password === '' && errorForm.email === '') {
