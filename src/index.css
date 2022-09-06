@@ -13,6 +13,17 @@ div#mui-p-8614-P-1 {
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+.container {
+  display: flex;
+
+}
+.container-dark {
+  background-color: #000;
+  color: white;
+}
+.container-light {
+  background-color: white;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

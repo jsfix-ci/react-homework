@@ -24,7 +24,6 @@
     width: 84px;
     height: 84px;
     display: flex;
-    margin-left: 1180px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -59,4 +58,11 @@
     color: #FFFFFF;
     justify-content: center;
     cursor: pointer;
+}
+.HeaderSwitch{
+    height: 30px;
+    width: 30px;
+    margin-left: 1100px;
+    margin-top: 28px;
+
 }
