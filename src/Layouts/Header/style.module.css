@@ -1,0 +1,10 @@
+.themeSwitcher {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    margin: 0 15px 0 auto;
+    transition: transform 0.3s;
+}
+.themeSwitcher:hover {
+    transform: rotate(20deg);
+}
