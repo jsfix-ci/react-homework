@@ -7,7 +7,7 @@ import './form.css'
 
 export const Form = () => {
     const [form, setForm] = useState({ })
-    const [errorForm, setErrorForm] = useState({ })
+    const [errorForm, setErrorForm] = useState('')
     const [info, setInfo] = useState([])
     const [serverError, setServerError] = useState(false);
     const [isSubmitForm, setSubmitForm] = useState(false);
