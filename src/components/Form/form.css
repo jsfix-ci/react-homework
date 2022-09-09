@@ -7,7 +7,6 @@
     font-size: 56px;
     display: flex;
     align-items: center;
-    color: #313037;
     margin: 50px 0 50px 400px
 }
 .form {
@@ -41,7 +40,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: #313037;
+    
 }
 .form-input {
     background: #FFFFFF;

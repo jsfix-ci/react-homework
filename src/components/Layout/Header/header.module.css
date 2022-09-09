@@ -20,11 +20,18 @@
     bottom: 36.9%;
     cursor: pointer;
 }
+.HeaderSwitch{
+    height: 30px;
+    width: 30px;
+    margin-left: 1250px;
+    margin-top: 28px;
+    margin-right: 10px;
+
+}
 .HeaderIcon {
     width: 84px;
     height: 84px;
     display: flex;
-    margin-left: 1300px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -39,4 +46,25 @@
     cursor: pointer;
     border-left: 1px solid #5360CD;
     border-right: 1px solid #5360CD;
+}
+.HeaderImg {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.svgIonicon {
+    width: 35px;
+    height: 35px;
+    color: white;
+}
+.HeaderImg1 {
+    width: 35px;
+    height: 35px;
+    
+}
+.svgIcon {
+    width: 35px;
+    height: 35px;
 }

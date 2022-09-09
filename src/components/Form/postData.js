@@ -1,31 +1,27 @@
 import axios from "axios";
 
-export const postData = async (form, setServerError, setSubmitForm) => {
-   await axios.post('https://studapi.teachmeskills.by/auth/users/', {
-        data: {
-            'username': form.name,
+export async function postData(form, setServerError, setSubmitForm) {
+    try {
+        let response = await axios.post('https://studapi.teachmeskills.by/auth/users/', {
+            'username': form.username,
             'email': form.email,
             'password': form.password
-        },
-        headers: {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    }).then(async response => {
-        const result = await response.json()
+            ,
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        const result = response
         if (response.status === 201) {
             setSubmitForm(true)
             return result
         } else {
-            const error = await response.json()
             setServerError(true)
             const e = new Error('Error on the server!Try again!')
-            e.data = error
             throw e
         }
-    }).catch(function (error) {
+    } catch (error) {
         console.log(error)
-    }).finally(function () {
-        setSubmitForm(false)
-    })
+    }
 }

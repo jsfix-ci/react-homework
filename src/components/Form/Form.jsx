@@ -7,7 +7,7 @@ import './form.css'
 
 export const Form = () => {
     const [form, setForm] = useState({ })
-    const [errorForm, setErrorForm] = useState({ })
+    const [errorForm, setErrorForm] = useState('')
     const [info, setInfo] = useState([])
     const [serverError, setServerError] = useState(false);
     const [isSubmitForm, setSubmitForm] = useState(false);
@@ -15,7 +15,7 @@ export const Form = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
         setErrorForm({
-            name: ((!validator.isAlphanumeric(form.username) && validator.isLength(form.password, {minLength:5})) ? 'Please enter a valid name!' : ''),
+            username: ((!validator.isAlphanumeric(form.username) && validator.isLength(form.username, {minLength:5})) ? 'Please enter a valid name!' : ''),
             password: ((!validator.isLength(form.password, {minLength:8})) ? 'Is Not Strong Password!' : ''),
             email: !validator.isEmail(form.email) ? 'Please, enter valid Email!' : ''
         })
@@ -44,17 +44,17 @@ return (
         <div className='form-list'>
             <div className='form-item'>
                 <label className='form-name' htmlFor='username'>Name</label>
-                <input className='form-input' type='text' value={form.username} name='username' onChange={(e)=> handleChange(e)} placeholder='Your name' />
+                <input className='form-input' label="username" id="username" type='text' value={form.username} name='username' onChange={(e)=> handleChange(e)} placeholder='Your name' />
                 <div className='form-error' >{errorForm.name}</div>
             </div>
             <div className='form-item'>
                     <label className='form-name' htmlFor='email'>Email</label>
-                    <input className='form-input' type='email' value={form.email} name='email' onChange={(e)=> handleChange(e)} placeholder='Your email' />
+                    <input className='form-input' label="email"  id="email" type='email' value={form.email} name='email' onChange={(e)=> handleChange(e)} placeholder='Your email' />
                     <div className='form-error'>{errorForm.email}</div>
             </div>
             <div className='form-item'>
                 <label className='form-name' htmlFor='password'>Password</label>
-                <input className='form-input' type='password' value={form.password} name='password' onChange={(e)=> handleChange(e)} placeholder='Your password' />
+                <input className='form-input' label="password" id="password" type='password' value={form.password} name='password' onChange={(e)=> handleChange(e)} placeholder='Your password' />
                 <div className='form-error'>{errorForm.password}</div>
             </div>
             <div>
