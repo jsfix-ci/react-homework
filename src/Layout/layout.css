@@ -2,6 +2,12 @@
     display: flex;
     justify-content: space-between;
     background: #2231AA;
+    align-items: center;
+}
+.header__nav{
+    display: flex;
+    gap: 15px;
+    margin-left: 40px;
 }
 .header__menu, .header__search {
 height: 84px;
@@ -25,19 +31,11 @@ padding: 0px 32px 19px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 92px;
-    position: relative;
-}
-
-.footer::before {
-    content: '';
-    background: #DADADA;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-    height: 1px;
-    width: 1120px;
-    position: absolute;
-    top: 0px;
-
+    min-height: 70px;
+    /* position: fixed;
+    bottom: 0px;
+    width: 1120px; */
+    border-top: 1px solid #DADADA;
 }
 
 .footer__item {

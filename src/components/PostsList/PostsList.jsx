@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import { PostsListItem } from "./PostListItem";
 import styles from './postsList.css'
+import { fetchPosts } from "../../api/fetchPost";
+import { Loading } from "../Loading/Loading";
 
 export const PostsList = function () {
     const [activeTab, setActiveTab] = useState('all')
     const [postsList, setPostList] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        fetch("https://60f699f318254c00176e0362.mockapi.io/posts")
-        .then((response) => response.json())
-        .then((data) => setPostList(data))
+      fetchPosts(setPostList, setIsLoading)
     }, [])
 
-    console.log(postsList)
+
+    if (isLoading) {
+      return <Loading />
+    }
 
     return <div>
         <h1 className='page__name'>Blog</h1>
