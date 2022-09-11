@@ -4,12 +4,12 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-export const Promo = () => {
+export const Promo = ({ title }) => {
     return (
         <section>
             <Container>
                 <Typography variant="h1" gutterBottom>
-                    Blog
+                    {title}
                 </Typography>
             </Container>
         </section>

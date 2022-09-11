@@ -1,14 +1,15 @@
-// libraires
 import React from 'react';
-// components
+import { Outlet } from 'react-router-dom';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
     return (
         <>
             <Header />
-            <main>{children}</main>
+            <main style={{ minHeight: '70vh' }}>
+                <Outlet />
+            </main>
             <Footer />
         </>
     );
