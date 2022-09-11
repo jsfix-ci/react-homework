@@ -1,5 +1,4 @@
 // libraries
-// libraries
 import React from 'react';
 import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
