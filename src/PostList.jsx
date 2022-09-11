@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const PostList = () => {
     const [postList, setPostList] = useState([]);
     useEffect(()=>{
-        fetch('https://60f699f318254c00176e0362.mockapi.io/posts')
+        fetch('https://studapi.teachmeskills.by/blog/posts/?limit=20')
         .then(response=>response.json())
         .then((data)=> setPostList(data))
     }, [])
