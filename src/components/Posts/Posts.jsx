@@ -10,7 +10,7 @@ export function Posts(){
         fetch('https://60f699f318254c00176e0362.mockapi.io/posts')
         .then(response=>response.json())
         .then((data)=>setLibraries(data))
-    },)
+    },[])
     return(
         
         <div className="container">

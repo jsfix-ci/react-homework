@@ -1,15 +1,16 @@
 import './App.css';
 import {Posts} from "./components/Posts"
-import {allPosts} from "./components/mockData/postList"
-import {Layout} from "./components/Layout"
+import {Layout} from "./Layout/Layout"
+import { ThemeProviders} from "././providers/ThemeProviders"
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProviders>
       <Layout>
         <Posts/>
       </Layout>
-    </div>
+    </ThemeProviders>
+
   );
 }
 
