@@ -8,10 +8,8 @@ export const DarkModeProvider = (props)=>{
         setDarkMode(!darkMode)
     } 
     return (
-        <div>
             <DarkModeContext.Provider value={{darkMode, toogleDarkMode}}>
                 {props.children}
             </DarkModeContext.Provider>
-        </div>
     )
 }

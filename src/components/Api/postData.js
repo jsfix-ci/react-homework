@@ -18,10 +18,8 @@ export async function postData(form, setServerError, setSubmitForm) {
             return result
         } else {
             setServerError(true)
-            const e = new Error('Error on the server!Try again!')
-            throw e
         }
     } catch (error) {
-        console.log(error)
+        setServerError({status: true, errors:{common: 'Error on server!Reload page!'}})
     }
 }

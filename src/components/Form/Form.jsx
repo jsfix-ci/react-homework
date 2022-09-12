@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import React from "react"
 import validator from "validator";
-import {postData} from "./postData"
+import {postData} from "../Api/postData"
 import './form.css'
  
 
