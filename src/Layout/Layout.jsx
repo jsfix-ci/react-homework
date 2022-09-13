@@ -4,6 +4,7 @@ import user from '../assets/user.png'
 import styles from './layout.css'
 import { Outlet } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+import {homePage, signInPage} from '../constants/pageNames'
 
 
 export const Layout = function () {
@@ -19,8 +20,8 @@ export const Layout = function () {
             <header className="header" >
                 {/* <img className="header__menu" src={iconMenu} alt="menu" /> */}
                 <nav className='header__nav'>
-                    <NavLink style={getStyle} to='/'>Blog</NavLink>
-                    <NavLink style={getStyle} to='SignIn'>Sign In</NavLink>
+                    <NavLink style={getStyle} to={homePage}>Blog</NavLink>
+                    <NavLink style={getStyle} to={signInPage}>Sign In</NavLink>
                 </nav>
                 <div className='header__item'>
                     <img className="header__search" src={search} alt="search" />

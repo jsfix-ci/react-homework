@@ -14,11 +14,9 @@ export async function formFetch(form, setIsFormsubmit, setIsErrorCatch) {
             return result
         } else {
             setIsErrorCatch(true)
-            const e = new Error('Что-то пошло не так')
-            throw e
         }
-    } catch (e) {
-        console.log(e)
+    } catch (setIsErrorCatch) {
+        setIsErrorCatch(true)
     }
 
 }

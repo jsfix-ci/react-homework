@@ -2,6 +2,7 @@ import { useState } from "react"
 import styles from "../Form/form.css"
 import { formFetch } from "../../api/postAPI"
 import { Link } from "react-router-dom";
+import { homePage } from "../../constants/pageNames";
 
 const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
@@ -40,7 +41,7 @@ export const Form = () => {
 
     return (
         <div className="form-inner">
-        <Link to='/'><p className="form-navLink">Back to home</p></Link>        
+        <Link to={homePage}><p className="form-navLink">Back to home</p></Link>        
         <p className="page-name">Sign in</p>
         <form className="form" onSubmit={handleSubmit}>
                 <input className='form-input' type='text' name='username' placeholder="Username" onChange={(e) => handleChange(e)} value={form.username} />

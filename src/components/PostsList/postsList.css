@@ -15,19 +15,10 @@
 
 .posts__item {
     list-style-type: none;
-    position: relative;
     overflow: hidden;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DADADA;
 
-}
-
-.posts__item::after{
-content: '';
- background: #DADADA;
-transform: matrix(1, 0, 0, -1, 0, 0);
-width: 352px;
-height: 0.84px;
-position: absolute;
-bottom: 0px;
 }
 
 .posts__img{
