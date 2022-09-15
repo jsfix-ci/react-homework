@@ -2,7 +2,7 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import React, { useContext } from "react";
 import { DarkModeContext } from "../../Context/DarkMode"
-import '../../../index.css'
+import '../../index.css'
 import { Outlet } from "react-router-dom";
 
 export const Layout = () => {

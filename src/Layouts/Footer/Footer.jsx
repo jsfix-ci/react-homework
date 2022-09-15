@@ -1,7 +1,7 @@
 import styles from "../Footer/footer.module.css"
 import React, { useContext } from "react";
 import { DarkModeContext } from "../../Context/DarkMode"
-import '../../../index.css'
+import '../../index.css'
 
 export const Footer = () => {
     const { darkMode } = useContext(DarkModeContext)

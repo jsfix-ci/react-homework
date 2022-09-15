@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import React from "react"
 import validator from "validator";
-import {postData} from "../Api/postData"
+import {postData} from "../../Api/postData"
 import './form.css'
  
 
-export const Form = () => {
+export const SignIn = () => {
     const [form, setForm] = useState({ })
     const [errorForm, setErrorForm] = useState('')
     const [info, setInfo] = useState([])
@@ -40,7 +40,7 @@ export const Form = () => {
 return (
 
     <form className="form" onSubmit={handleSubmit}>
-        <header className="header">Sing in</header>
+        <header className="header">Sign in</header>
         <div className='form-list'>
             <div className='form-item'>
                 <label className='form-name' htmlFor='username'>Name</label>
