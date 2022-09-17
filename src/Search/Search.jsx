@@ -25,7 +25,7 @@ export const Search = function() {
     return <Error />;
   }
 
-  if (posts) {
+  if (posts.length === 0) {
     return (
       <div>
         <h1 className="page__name">{`Search results "${searchValue}"`}</h1>
