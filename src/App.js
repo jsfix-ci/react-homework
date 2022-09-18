@@ -1,21 +1,11 @@
 import { useState } from "react";
-import { Posts } from "./Posts";
-import { PostList } from "./PostList";
-import "./posts.css";
+import { MainRoute } from "./routes/MainRoute";
 
 function App() {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [allowTeams, setAllowTeams] = useState();
   return (
     <>
-      <h1 className="title">Blog</h1>
-      <button className="btn btn_all" onClick={() => setIsFavorite(false)}>
-        All
-      </button>
-      <button className="btn btn_fav" onClick={() => setIsFavorite(true)}>
-        Favorites
-      </button>
-      <PostList className="postList" />
-      <Posts className="posts" isFavorite={isFavorite} />
+      <MainRoute allowTeams={allowTeams} setAllowTeams={setAllowTeams} />
     </>
   );
 }
