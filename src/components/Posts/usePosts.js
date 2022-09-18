@@ -1,16 +1,16 @@
 import { useState, useEffect, useMemo, useCallback, useContext } from "react";
 import { PostsList } from "../mockData/PostsList";
-import { ThemeContext } from "../ThemeProvider/ThemeProvider";
+// import { ThemeContext } from "../ThemeProvider/ThemeProvider";
 
 export const usePosts = () => {
     const [tab, setTab] = useState("allposts");
     const [randomPosts, setRandomPosts] = useState([]);
 
-    const { theme, setTheme } = useContext(ThemeContext);
+    // const { theme, setTheme } = useContext(ThemeContext);
 
-    const themeToggle = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    };
+    // const themeToggle = () => {
+    //     setTheme(theme === "light" ? "dark" : "light");
+    // };
 
     const favPosts = useMemo(() => PostsList.filter((el) => el.isFavorite), []);
 
@@ -28,7 +28,7 @@ export const usePosts = () => {
     }, []);
 
     return {
-        themeToggle,
+        // themeToggle,
         tab,
         setTab,
         randomPosts,

@@ -29,13 +29,13 @@ export const Posts = () => {
         <button className="tabBtn" onClick={() => setTab("favourites")}>My favorites</button>
         <button className="tabBtn">Popular</button>
       </div>
-      <div className="switcherContainer">
+      {/* <div className="switcherContainer">
         <span className="switcherDescrytion">Change Theme</span>
       <label className="switch">
         <input type="checkbox" onClick={themeToggle}></input>
         <span className="slider"></span>
       </label>
-      </div>
+      </div> */}
       </div>
       <div className="tabContainer">
         <div>
