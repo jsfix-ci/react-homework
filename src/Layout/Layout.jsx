@@ -1,21 +1,22 @@
 import "./layout.css"
-import React, { useContext } from "react"
-import { ThemeContext } from "../providers/ThemeProviders"
+import { Outlet} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 
 
-export const Layout = ({children}) =>{
 
-    const {theme, setTheme} = useContext(ThemeContext)
+export const Layout = () =>{
+
     return(
         
-        <div className={theme ? "Layout Light" : "Layout Dark"}>
+        <div>
             <header className="header">
-            <button className="button_theme" onClick={()=>{
-                setTheme(!theme)
-            }}>Change theme</button>
+                <nav className="header_nav">
+                <NavLink to="/" className="header_link" >Blog</NavLink>
+                <NavLink to="login" className="header_link" >Sign In</NavLink>
+                </nav>
             </header>
-            {children}
+            <Outlet/>
             <footer className="footer">
                 <div className="footer_container">
                 <div>©2022 Blogfolio</div>

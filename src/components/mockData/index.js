@@ -1,1 +1,0 @@
-export {allPosts} from "./postList"

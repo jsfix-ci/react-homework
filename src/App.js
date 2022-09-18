@@ -1,15 +1,29 @@
 import './App.css';
 import {Posts} from "./components/Posts"
 import {Layout} from "./Layout/Layout"
-import { ThemeProviders} from "././providers/ThemeProviders"
+import { SingUp } from "./components/SingUp/SingUp"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 function App() {
   return (
-    <ThemeProviders>
-      <Layout>
-        <Posts/>
-      </Layout>
-    </ThemeProviders>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index  element={<Posts/>}/>
+        <Route path='login' element={<SingUp/>}/>
+
+      </Route>
+      <Route path="*"
+      element={
+        <div>
+          <h1>Not found..</h1>
+        </div>
+      }/>
+
+    </Routes>
+
+    </BrowserRouter>
+
 
   );
 }

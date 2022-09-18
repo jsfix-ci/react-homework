@@ -1,16 +1,20 @@
 import React, {useState, useEffect} from "react";
-import { allPosts } from "../mockData";
+import { fetchPosts } from "../api/fetchPosts"
 import "./posts.css"
  
 export function Posts(){
-    const favPosts = allPosts.filter(post => post.isFavorite)
     const [activeTab, setActiveTab] = useState(true)
-    const[libraries, setLibraries] = useState([])
+    const[post, setPost] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIsError] = useState(false)
+
+
+    console.log(post)
     useEffect(()=>{
-        fetch('https://60f699f318254c00176e0362.mockapi.io/posts')
-        .then(response=>response.json())
-        .then((data)=>setLibraries(data))
-    },[])
+        fetchPosts(setIsLoading, setPost,setIsError )
+    },[]);
+
+
     return(
         
         <div className="container">
@@ -19,11 +23,24 @@ export function Posts(){
              <button className="button1">All</button>
              <button className="button1">My Favorute</button>
              <button className="button1">Popular</button>
+             </div>
+             <div>
+                    {isLoading ? <div className="preloader">
+                    <div className="preloader__row">
+                    <div className="preloader__item"></div>
+                    <div className="preloader__item"></div>
+                    </div></div> : null
+                    }
+                </div>
+                
+                   <div>
+                   {isError ? <div>Somethings wents wrong...</div> : null}
+                    </div> 
 
-            </div>
+            
 
             <ul className="post">
-                {libraries.map(item=>{
+                {post.map(item=>{
                     return(
                         <li className="post_card" key = {item.id}>
                             <img className="post_image" src={item.image}/>
