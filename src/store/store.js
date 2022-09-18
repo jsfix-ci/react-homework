@@ -1,6 +1,12 @@
-import { createStore } from "redux";
-import { postReducer } from "./postStore/reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = createStore(postReducer);
+import thunk from "redux-thunk";
+import { applyMiddleware } from "@reduxjs/toolkit";
+import postsSlice from "./postStore/postsSlice";
+
+const store = configureStore({
+  reducer: postsSlice,
+  fetch: applyMiddleware(thunk),
+});
 
 export default store;

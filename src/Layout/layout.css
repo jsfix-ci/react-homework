@@ -35,7 +35,7 @@
 .header__userName {
   height: 46px;
   width: 165px;
-  padding: 0px 32px 19px 30px;
+  padding: 5px 32px 5px 30px;
 }
 .page__wrapper {
   max-width: 1120px;

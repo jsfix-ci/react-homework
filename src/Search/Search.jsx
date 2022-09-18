@@ -6,6 +6,7 @@ import { Loading } from "../components/Loading/Loading";
 import { Error } from "../components/Error/Error";
 import { useSearchParams } from "react-router-dom";
 import styles from "./search.css";
+import { useStore } from "react-redux";
 
 export const Search = function() {
   const [serchParams] = useSearchParams();
@@ -25,7 +26,7 @@ export const Search = function() {
     return <Error />;
   }
 
-  if (posts) {
+  if (posts.length === 0) {
     return (
       <div>
         <h1 className="page__name">{`Search results "${searchValue}"`}</h1>

@@ -12,7 +12,7 @@ export const PostsList = function() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPosts(dispatch);
+    dispatch(fetchPosts());
   }, [dispatch]);
 
   if (isLoading) {

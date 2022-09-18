@@ -2,7 +2,7 @@ import {
   postLoading,
   postError,
   postSuccess,
-} from "../store/postStore/actions";
+} from "../store/postStore/postsSlice";
 
 export async function fetchSearch(dispatch, searchValue) {
   try {
