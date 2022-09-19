@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import React from "react"
 import validator from "validator";
-import {postData} from "../../Api/postData"
+import {getSingInAsync} from "../../Api/getSingInAsync"
 import './form.css'
  
 
@@ -19,7 +19,7 @@ export const SignIn = () => {
             password: ((!validator.isLength(form.password, {minLength:8})) ? 'Is Not Strong Password!' : ''),
             email: !validator.isEmail(form.email) ? 'Please, enter valid Email!' : ''
         })
-        postData (form, setServerError, setSubmitForm)
+        getSingInAsync (form, setServerError, setSubmitForm)
         setServerError( false)
         setSubmitForm(false)
     }

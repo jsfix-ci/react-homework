@@ -9,7 +9,7 @@ export const PostItem = ({ id, image, date, text, title, }) => {
                 <p className={styles.headerDate}>{new Date(date).toDateString()}</p>
                 <p className={styles.headerName}>{title}</p>
                 <p className={styles.headerText}>{text.substring(0, 287)}</p>
-                <Link className={styles.headerLink} to={`/blog/${id}`}>Show more</Link>
+                <Link className={styles.headerLink} to={`/post/${id}`}>Show more</Link>
                 <div className={styles.line}></div>
             </div>
         </div>

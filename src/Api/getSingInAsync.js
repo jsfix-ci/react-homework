@@ -1,8 +1,9 @@
 import axios from "axios";
+import {SING_IN} from "../Costants/endpoints"
 
-export async function postData(form, setServerError, setSubmitForm) {
+export async function getSingInAsync(form, setServerError, setSubmitForm) {
     try {
-        let response = await axios.post('https://studapi.teachmeskills.by/auth/users/', {
+        const response = await axios.post(SING_IN, {
             'username': form.username,
             'email': form.email,
             'password': form.password

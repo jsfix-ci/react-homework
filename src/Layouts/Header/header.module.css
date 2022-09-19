@@ -1,35 +1,32 @@
-.Header {
+.header {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
     height: 84px;
     background: #2231AA;
     position: relative;
-
+    justify-content: space-between;
 }
-.HeaderSvg {
-    width: 84px;
-    height: 84px;
+.headerItem{
     display: flex;
-    float: left;
-    position: absolute;
-    left: 1.56%;
-    right: 97.19%;
-    top: 34.52%;
-    bottom: 36.9%;
-    cursor: pointer;
+    flex-direction: row;
 }
-.HeaderSwitch{
+.headerItem2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 15px;
+    height: 84px;
+    gap: 15px;
+}
+.headerSwitch{
     height: 30px;
     width: 30px;
-    margin-left: 1250px;
-    margin-top: 28px;
-    margin-right: 10px;
-
+    margin-left: 10px;
+    cursor: pointer; 
+   
 }
-.HeaderIcon {
-    width: 84px;
+.headerIcon {
+    width: 70px;
     height: 84px;
     display: flex;
     justify-content: center;
@@ -37,8 +34,8 @@
     cursor: pointer;
     border-left: 1px solid #5360CD;
 }
-.HeaderIcon2 {
-    width: 84px;
+.headerIcon2 {
+    width: 70px;
     height: 84px;
     display: flex;
     justify-content: center;
@@ -47,24 +44,26 @@
     border-left: 1px solid #5360CD;
     border-right: 1px solid #5360CD;
 }
-.HeaderImg {
-    width: 84px;
+.headerImg {
+    width: 70px;
     height: 84px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-right: 1px solid #5360CD;
 }
 .svgIonicon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     color: white;
 }
-.HeaderImg1 {
-    width: 35px;
-    height: 35px;
+.headerImg1 {
+    width: 30px;
+    height: 30px;
     
 }
 .svgIcon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
+

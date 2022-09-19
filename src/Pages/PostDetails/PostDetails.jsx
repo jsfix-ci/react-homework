@@ -1,21 +1,36 @@
-import React, { useEffect } from "react";
-import { api } from "../../Store/postDetail/api";
+import React, { useEffect, useState } from "react";
 import styles from "../PostDetails/blog.module.css";
 import like from "../../components/svg/like.svg";
 import dislike from "../../components/svg/dislike.svg";
 import favorite from "../../components/svg/favorite.svg";
-import { useSelector, useDispatch } from "react-redux";
 import { Spinner } from "../../components";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import {  POST_LIST } from "../../Costants/endpoints";
+
 
 export const PostDetails = () => {
-  const { post, isLoading, error } = useSelector(
-    (store) => store.postDetailReducer
-  );
-  const dispatch = useDispatch();
+  const [post, setPost] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const { postId } =useParams()
+
+ const fetchPostDetail = async () => {
+    axios
+      .get(`${POST_LIST}/${postId}`)
+      .then((res) => {
+        setPost(res.data);
+      })
+      .catch((error) => {
+        setError(true);
+      }).finally(()=> {
+        setIsLoading(false)
+      })
+  };
 
   useEffect(() => {
-    api(dispatch);
-  }, [dispatch]);
+    fetchPostDetail();
+  }, []);
 
   if (isLoading) {
     return <Spinner />;
