@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import LoginIcon from '@mui/icons-material/Login';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import {ThemeContext} from "../../context/themeContext";
+import styles from './style.module.css';
 
 export const Header = () => {
+    const [darkTheme, setDarkTheme] = useContext(ThemeContext);
+    
+    useEffect(() => {
+        darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+    }, [darkTheme]);
+    
     return (
         <Box component="header" pt={3} pb={3} mb={5}>
             <Container>
@@ -16,6 +25,9 @@ export const Header = () => {
                             alt="logo"
                         />
                     </Link>
+                    <button onClick={() => setDarkTheme(!darkTheme)} className={styles.themeSwitcher}>
+                        <DarkModeIcon />
+                    </button>
                     <Button component={Link} to={'/sign-up'} endIcon={<LoginIcon />}>
                         Login
                     </Button>

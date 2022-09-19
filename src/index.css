@@ -1,4 +1,30 @@
+:root {
+    --text-color: #252525;
+    --background: #fff;
+}
+
+body.dark {
+    --text-color: #fff;
+    --background: #989898;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--text-color);
+    background: var(--background);
+}
+
 img {
     display: block;
     max-width: 100%;
+}
+
+button {
+    cursor: pointer;
 }
