@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { fetchPosts } from "../api/fetchPosts"
+import { Link } from "react-router-dom"
 import "./posts.css"
  
 export function Posts(){
-    const [activeTab, setActiveTab] = useState(true)
     const[post, setPost] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
 
 
-    console.log(post)
     useEffect(()=>{
         fetchPosts(setIsLoading, setPost,setIsError )
     },[]);
@@ -45,7 +44,7 @@ export function Posts(){
                         <li className="post_card" key = {item.id}>
                             <img className="post_image" src={item.image}/>
                             <div className="post_date">{item.date}</div>
-                            <div className="post_text">{item.text}</div>
+                            <Link to={`/post/${item.id}`} className="post_text">{item.text}</Link>
                         </li>
                     
                     )

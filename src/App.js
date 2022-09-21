@@ -2,6 +2,7 @@ import './App.css';
 import {Posts} from "./components/Posts"
 import {Layout} from "./Layout/Layout"
 import { SingUp } from "./components/SingUp/SingUp"
+import { PostDetail } from './components/PostDetails';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout/>}>
         <Route index  element={<Posts/>}/>
+        <Route path='post/:postId' element={<PostDetail/>}/>
         <Route path='login' element={<SingUp/>}/>
 
       </Route>
