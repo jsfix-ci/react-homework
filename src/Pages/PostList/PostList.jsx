@@ -4,18 +4,18 @@ import { TabContext, TabPanel, TabList } from "@mui/lab";
 import styles from "../PostList/post.module.css";
 import { Spinner } from "../../components/Spinner";
 import { PostItem } from "./PostItem";
-import { getPostsAsync } from "../../store/postStore/getPostsAsync";
+import { getPostsAsync } from "../../store/postStore/postsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export const PostList = () => {
   const { posts, isLoading, error } = useSelector(
-    (store) => store.postsReducer
+    (store) => store.posts
   );
   const dispatch = useDispatch();
   const [value, setValue] = useState("1");
 
   useEffect(() => {
-    getPostsAsync(dispatch);
+    dispatch(getPostsAsync({}));
   }, [dispatch]);
 
   const handleChange = (event, newValue) => {

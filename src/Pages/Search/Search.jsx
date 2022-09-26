@@ -1,21 +1,19 @@
 import { useSearchParams } from "react-router-dom";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchAsync } from "../../Api/getSearchAsync";
+import { getPostsAsync } from "../../store/postStore/postsSlice";
 import { Spinner } from "../../components/Spinner";
 import styles from "../Search/search.module.css";
 import { PostItem } from "../PostList/PostItem";
 
 export const Search = () => {
-  const { posts, isLoading, error } = useSelector(
-    (store) => store.postsReducer
-  );
+  const { posts, isLoading, error } = useSelector((store) => store.posts);
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
-  const searchValue = searchParams.get("search");
+  const [params] = useSearchParams();
+  const searchValue = params.get("value");
 
   useEffect(() => {
-    getSearchAsync(dispatch, searchValue);
+    dispatch(getPostsAsync({search: searchValue}));
   }, [dispatch, searchValue]);
 
   if (isLoading) {
@@ -31,7 +29,7 @@ export const Search = () => {
       <div className={styles.searchPage}>
         <h1
           className={styles.searchTitle}
-        >{`Search results ‘${searchValue}’`}</h1>
+        >Search results ‘{searchValue}’</h1>
         <img
           className={styles.searchImg}
           src="https://cdn.dribbble.com/users/1883357/screenshots/6016190/search_no_result.png"
@@ -45,7 +43,7 @@ export const Search = () => {
     <div className={styles.searchPage}>
       <h1
         className={styles.searchTitle}
-      >{`Search results ‘${searchValue}’`}</h1>
+      >Search results ‘{searchValue}’</h1>
       <div className={styles.searchItem}>
         {posts.map(({ id, image, date, text, title }) => {
           return (

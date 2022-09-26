@@ -1,36 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "../PostDetails/blog.module.css";
 import like from "../../components/svg/like.svg";
 import dislike from "../../components/svg/dislike.svg";
 import favorite from "../../components/svg/favorite.svg";
 import { Spinner } from "../../components";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import {  POST_LIST } from "../../Costants/endpoints";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getPostDetail } from "../../store/postStore/postsSlice";
 
 export const PostDetails = () => {
-  const [post, setPost] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const { postId } =useParams()
-
- const fetchPostDetail = async () => {
-    axios
-      .get(`${POST_LIST}/${postId}`)
-      .then((res) => {
-        setPost(res.data);
-      })
-      .catch((error) => {
-        setError(true);
-      }).finally(()=> {
-        setIsLoading(false)
-      })
-  };
+  const paramsId = useParams();
+  const postId = paramsId.postId;
+  const { postDetail, isLoading, error } = useSelector((store) => store.posts);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPostDetail();
-  }, []);
+    dispatch(getPostDetail({ id: postId }));
+  }, [dispatch, postId]);
 
   if (isLoading) {
     return <Spinner />;
@@ -43,11 +29,11 @@ export const PostDetails = () => {
   }
 
   return (
-    <div className={styles.header} key={post.id}>
+    <div className={styles.header} key={postDetail.id}>
       <div className={styles.postItem}>
-        <p className={styles.postName}>{post.title}</p>
-        <img className={styles.postImg} src={post.image} alt="card" />
-        <p className={styles.postText}>{post.text}</p>
+        <p className={styles.postName}>{postDetail.title}</p>
+        <img className={styles.postImg} src={postDetail.image} alt="card" />
+        <p className={styles.postText}>{postDetail.text}</p>
         <div className={styles.line}></div>
       </div>
       <div className={styles.frame}>

@@ -1,17 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { DarkModeContext } from "../../Context/DarkMode";
 import styles from "../Header/header.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import blog from "../../components/svg/blog.svg";
 import { SING_IN, POST, HOME } from "../../Costants/routes";
-import "./search.css";
-import SearchIcon from "@mui/icons-material/Search";
+import { SearchForm } from "../../components/SearchForm/SearchForm";
 
 export const Header = () => {
   const { darkMode, toogleDarkMode } = useContext(DarkModeContext);
-  const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState("");
-
+  
   const handleClick = () => {
     toogleDarkMode();
   };
@@ -74,26 +71,7 @@ export const Header = () => {
         </Link>
       </div>
       <div className={styles.headerItem2}>
-        <div className="searchBox">
-          <input
-            className="searchInput"
-            type="text"
-            name=""
-            placeholder="Search....."
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
-          />
-          <button
-            onClick={() => {
-              navigate(`search/?search=${inputValue}`);
-              setInputValue("");
-            }}
-            className="searchButton"
-            href="#"
-          >
-            <SearchIcon color="white"></SearchIcon>
-          </button>
-        </div>
+        <SearchForm />
         <img
           className={styles.headerSwitch}
           src={
