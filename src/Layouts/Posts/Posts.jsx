@@ -5,7 +5,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { TabPanel } from '../../components/TabPanel';
 import { PostsList } from '../../components/PostsList';
-import { a11yProps } from '../../helpers/a11yProps';
+import { a11yProps } from '../../utils/helpers/a11yProps';
+import { GET_POSTS } from '../../utils/constants/endpoints';
 import loadingSpinnerImg from '../../assets/images/svg-icons/loading-spinner.svg';
 
 export const Posts = () => {
@@ -19,7 +20,7 @@ export const Posts = () => {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const response = await fetch('https://studapi.teachmeskills.by/blog/posts/?limit=20');
+            const response = await fetch(`${GET_POSTS}?limit=20`);
             const postsData = await response.json();
             setPostsList(postsData.results);
         } catch (err) {

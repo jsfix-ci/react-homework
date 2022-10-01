@@ -4,7 +4,8 @@ import { Container, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import LoginIcon from '@mui/icons-material/Login';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { ThemeContext } from '../../context/themeContext';
+import { ThemeContext } from '../../utils/context/themeContext';
+import { SIGNUP } from '../../utils/constants/routs';
 import styles from './style.module.css';
 
 export const Header = () => {
@@ -28,7 +29,7 @@ export const Header = () => {
                     <button onClick={() => setDarkTheme(!darkTheme)} className={styles.themeSwitcher}>
                         <DarkModeIcon />
                     </button>
-                    <Button component={Link} to={'/signup'} endIcon={<LoginIcon />}>
+                    <Button component={Link} to={SIGNUP} endIcon={<LoginIcon />}>
                         Login
                     </Button>
                 </Box>

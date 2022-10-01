@@ -3,8 +3,9 @@ import Container from '@mui/material/Container';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object } from 'yup';
-import { VALIDATION_SCHEME } from '../../helpers/validationScheme';
+import { VALIDATION_SCHEME } from '../../utils/helpers/validationScheme';
 import { Input } from '../../components/UI/Input';
+import { POST_USER } from '../../utils/constants/endpoints';
 
 export const SignUpForm = () => {
     const [serverError, setServerError] = useState({ status: false, errors: {} });
@@ -33,7 +34,7 @@ export const SignUpForm = () => {
 
     const postData = async (data) => {
         try {
-            let response = await fetch('https://studapi.teachmeskills.by/auth/users/', {
+            let response = await fetch(POST_USER, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

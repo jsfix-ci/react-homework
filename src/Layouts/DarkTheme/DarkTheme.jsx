@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeContext } from '../../context/themeContext';
+import { ThemeContext } from '../../utils/context/themeContext';
 
 export const DarkTheme = ({ children }) => {
     const [darkTheme, setDarkTheme] = useState(false);

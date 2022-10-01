@@ -6,9 +6,15 @@ export const PostsList = ({ elements }) => {
     return (
         <Grid container spacing={3}>
             {elements.length ? (
-                elements.map(({ id, image, text, date, isFavorite }) => (
+                elements.map(({ id, _image, title, date, isFavorite }) => (
                     <Grid xs={12} sm={6} lg={4} key={id}>
-                        <MediaCard image={image} title={text} date={date} isFavorite={isFavorite} />
+                        <MediaCard
+                            image={'https://api.lorem.space/image/movie?w=220&h=150'}
+                            title={title}
+                            date={date}
+                            isFavorite={isFavorite}
+                            id={id}
+                        />
                     </Grid>
                 ))
             ) : (
