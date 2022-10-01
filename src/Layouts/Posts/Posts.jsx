@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -6,35 +7,21 @@ import Container from '@mui/material/Container';
 import { TabPanel } from '../../components/TabPanel';
 import { PostsList } from '../../components/PostsList';
 import { a11yProps } from '../../utils/helpers/a11yProps';
-import { GET_POSTS } from '../../utils/constants/endpoints';
 import loadingSpinnerImg from '../../assets/images/svg-icons/loading-spinner.svg';
+import { getPostsAsync } from '../../asyncActions/getPostsAsync';
 
 export const Posts = () => {
     const [activeTab, setActiveTab] = useState(0);
-    const [errorOnLoad, setErrorOnLoad] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [postsList, setPostsList] = useState([]);
+    const dispatch = useDispatch();
+    const { postsList, serverError, isPending } = useSelector((store) => store.mainPosts);
 
     const favoritePostsList = postsList.filter(({ isFavorite }) => isFavorite);
 
-    const fetchData = async () => {
-        setLoading(true);
-        try {
-            const response = await fetch(`${GET_POSTS}?limit=20`);
-            const postsData = await response.json();
-            setPostsList(postsData.results);
-        } catch (err) {
-            setErrorOnLoad(true);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     useEffect(() => {
-        fetchData();
-    }, []);
+        dispatch(getPostsAsync());
+    }, [dispatch]);
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (_event, newValue) => {
         setActiveTab(newValue);
     };
 
@@ -48,8 +35,8 @@ export const Posts = () => {
                             <Tab label="My favorites" {...a11yProps(1)} />
                         </Tabs>
                     </Box>
-                    {loading && <img style={{ margin: '0 auto', width: 60 }} src={loadingSpinnerImg} alt="loading" />}
-                    {errorOnLoad && <p>Reload page please, failed to load data</p>}
+                    {isPending && <img style={{ margin: '0 auto', width: 60 }} src={loadingSpinnerImg} alt="loading" />}
+                    {serverError && <p>Reload page please, failed to load data</p>}
                     <TabPanel value={activeTab} index={0}>
                         <PostsList elements={postsList} />
                     </TabPanel>
