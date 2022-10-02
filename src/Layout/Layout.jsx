@@ -1,6 +1,6 @@
 import "./layout.css"
-import { Outlet} from "react-router-dom"
-import {NavLink} from "react-router-dom"
+import { Outlet,NavLink } from "react-router-dom"
+import { Search } from "../components/Search/Search"
 
 
 
@@ -15,6 +15,7 @@ export const Layout = () =>{
                 <NavLink to="/" className="header_link" >Blog</NavLink>
                 <NavLink to="login" className="header_link" >Sign In</NavLink>
                 </nav>
+                <Search/>
             </header>
             <Outlet/>
             <footer className="footer">

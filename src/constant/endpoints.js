@@ -1,1 +1,2 @@
-export const POST_API = "https://studapi.teachmeskills.by/blog/posts/?limit=20"
+export const POST_API = "https://studapi.teachmeskills.by/blog/posts/"
+export const POST_SEARCH = "/search"
