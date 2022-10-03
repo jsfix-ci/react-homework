@@ -2,9 +2,14 @@
     background: transparent;
     border: none;
     color: var(--text-color);
-    margin: 0 15px 0 auto;
+    margin: 0 15px 0 0;
     transition: transform 0.3s;
 }
 .themeSwitcher:hover {
     transform: rotate(20deg);
+}
+
+.searchField {
+    margin-left: auto;
+    padding-right: 20px;
 }

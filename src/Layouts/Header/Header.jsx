@@ -4,6 +4,7 @@ import { Container, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import LoginIcon from '@mui/icons-material/Login';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { SearchField } from '../../components/SearchField';
 import { ThemeContext } from '../../utils/context/themeContext';
 import { SIGNUP } from '../../utils/constants/routs';
 import styles from './style.module.css';
@@ -26,6 +27,9 @@ export const Header = () => {
                             alt="logo"
                         />
                     </Link>
+                    <div className={styles.searchField}>
+                        <SearchField />
+                    </div>
                     <button onClick={() => setDarkTheme(!darkTheme)} className={styles.themeSwitcher}>
                         <DarkModeIcon />
                     </button>
